@@ -102,7 +102,8 @@ export function map<A, B>(f: (a: A, k: number) => B) {
  * @tsplus pipeable Collection zip
  */
 export function zip<B>(that: Collection<B>) {
-  return <A>(self: Collection<A>): Collection<Tuple<[A, B]>> => self.zipWith(that, Tuple.make)
+  return <A>(self: Collection<A>): Collection<readonly [A, B]> =>
+    self.zipWith(that, (a, b) => [a, b])
 }
 
 /**
@@ -456,4 +457,11 @@ export function equals<B>(that: Collection<B>) {
  */
 export function make<A extends readonly any[]>(...as: A): Collection<A[number]> {
   return as
+}
+
+/**
+ * @tsplus getter Collection toArray
+ */
+export function toArray<A>(data: Collection<A>): Array<A> {
+  return Array.from(data)
 }

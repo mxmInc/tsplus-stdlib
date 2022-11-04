@@ -140,10 +140,6 @@ import { Stack } from "@tsplus/stdlib/data/Stack"
 /**
  * @tsplus global
  */
-import { Tuple } from "@tsplus/stdlib/data/Tuple/definition"
-/**
- * @tsplus global
- */
 import { IndexOutOfBounds, NoSuchElement, PrematureGeneratorExit } from "@tsplus/stdlib/exceptions"
 /**
  * @tsplus global
@@ -153,6 +149,18 @@ import { Exception } from "@tsplus/stdlib/exceptions/Exception"
  * @tsplus global
  */
 import { Eval } from "@tsplus/stdlib/io/Eval/definition"
+/**
+ * @tsplus global
+ */
+import { ArrayInt } from "@tsplus/stdlib/io/Random/Distribution/_internal/ArrayInt"
+/**
+ * @tsplus global
+ */
+import { MutableRandom } from "@tsplus/stdlib/io/Random/MutableRandom"
+/**
+ * @tsplus global
+ */
+import { PCGRandom } from "@tsplus/stdlib/io/Random/PCGRandom"
 /**
  * @tsplus global
  */
@@ -442,10 +450,6 @@ import { lazy } from "@tsplus/stdlib/utilities/Lazy"
 /**
  * @tsplus global
  */
-import { RandomPCG } from "@tsplus/stdlib/utilities/RandomPCG"
-/**
- * @tsplus global
- */
 import {
   EnforceNonEmptyRecord,
   Erase,
@@ -453,7 +457,6 @@ import {
   ESIterable,
   ESReadonlyArray,
   ForcedArray,
-  ForcedTuple,
   IsInt,
   MergeRecord,
   OrElse,

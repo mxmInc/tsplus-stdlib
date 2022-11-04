@@ -13,7 +13,7 @@ export type _V = typeof _V
  * @tsplus type MutableHashMap
  * @tsplus companion MutableHashMap.Ops
  */
-export class MutableHashMap<K, V> implements Collection<Tuple<[K, V]>> {
+export class MutableHashMap<K, V> implements Collection<readonly [K, V]>, Equals {
   readonly [MutableHashMapSym]: MutableHashMapSym = MutableHashMapSym
   readonly [_K]!: () => K
   readonly [_V]!: () => V
@@ -23,6 +23,14 @@ export class MutableHashMap<K, V> implements Collection<Tuple<[K, V]>> {
 
   get size(): number {
     return this.length.get
+  }
+
+  [Hash.sym]() {
+    return Hash.randomCached(this)
+  }
+
+  [Equals.sym](that: unknown) {
+    return this === that
   }
 
   get(k: K): Maybe<V> {
@@ -127,23 +135,23 @@ export class MutableHashMap<K, V> implements Collection<Tuple<[K, V]>> {
     return this
   }
 
-  [Symbol.iterator](): Iterator<Tuple<[K, V]>> {
+  [Symbol.iterator](): Iterator<readonly [K, V]> {
     return ImmutableArray.from(this.backingMap.values())
-      .map((node) => Tuple(node.k, node.v))[Symbol.iterator]()
+      .map((node) => [node.k, node.v] as const)[Symbol.iterator]()
   }
 }
 
-class Node<K, V> implements Iterable<Tuple<[K, V]>> {
+class Node<K, V> implements Iterable<readonly [K, V]> {
   constructor(readonly k: K, public v: V, public next?: Node<K, V>) {}
 
-  [Symbol.iterator](): Iterator<Tuple<[K, V]>> {
+  [Symbol.iterator](): Iterator<readonly [K, V]> {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     let c: Node<K, V> | undefined = this
     let n = 0
     return {
       next: () => {
         if (c) {
-          const kv = Tuple(c.k, c.v)
+          const kv = [c.k, c.v] as const
           c = c.next
           n++
           return {

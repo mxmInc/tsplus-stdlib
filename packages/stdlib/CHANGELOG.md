@@ -1,5 +1,23 @@
 # @tsplus/stdlib
 
+## 0.2.8
+
+### Patch Changes
+
+- [#212](https://github.com/ts-plus/stdlib/pull/212) [`55fe672`](https://github.com/ts-plus/stdlib/commit/55fe672b1c5b00564a0d2fdd99d99a41315e50cb) Thanks [@mikearnaldi](https://github.com/mikearnaldi)! - Improve Equals on Object, fix Tag/Eval equality
+
+## 0.2.7
+
+### Patch Changes
+
+- [#211](https://github.com/ts-plus/stdlib/pull/211) [`6411fc9`](https://github.com/ts-plus/stdlib/commit/6411fc9032a4db21a8d34b057fc3477fa7506476) Thanks [@mikearnaldi](https://github.com/mikearnaldi)! - Kill Tuple
+
+- [#211](https://github.com/ts-plus/stdlib/pull/211) [`077932f`](https://github.com/ts-plus/stdlib/commit/077932f52944897911af59d686f4596dc916b789) Thanks [@mikearnaldi](https://github.com/mikearnaldi)! - Cleanup Array and fix mutable comparison
+
+- [#193](https://github.com/ts-plus/stdlib/pull/193) [`6225db5`](https://github.com/ts-plus/stdlib/commit/6225db551ffe5ef64af1c7ee412b073bdeb79677) Thanks [@IMax153](https://github.com/IMax153)! - update Random implementation
+
+- [#209](https://github.com/ts-plus/stdlib/pull/209) [`c116a39`](https://github.com/ts-plus/stdlib/commit/c116a39985ce9a0b11a794c430f15401fd1654e8) Thanks [@mikearnaldi](https://github.com/mikearnaldi)! - Change Equals to work Structurally, change Either/Maybe to be plain objects
+
 ## 0.2.6
 
 ### Patch Changes
