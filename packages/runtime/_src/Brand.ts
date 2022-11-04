@@ -1,5 +1,8 @@
-declare const validSym: unique symbol
-declare const namedSym: unique symbol
+// declare const validSym: unique symbol
+// declare const namedSym: unique symbol
+
+export const validSym = Symbol("validSym")
+export const namedSym = Symbol("namedSym")
 
 /**
  * @tsplus derive nominal
